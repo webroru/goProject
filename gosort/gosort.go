@@ -62,8 +62,10 @@ func sort(array []int) []int {
 	}
 
 	wg.Wait()
+	mergedArray := mergeSortedArrays(sortedParts);
+	slices.Sort(mergedArray)
 
-	return mergeSortedArrays(sortedParts);
+	return mergedArray;
 }
 
 func sortBatch(array []int, sortedPart *[]int, wg *sync.WaitGroup) {
